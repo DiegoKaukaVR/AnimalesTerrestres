@@ -59,7 +59,7 @@ public class SoundSystem : CognitiveSystem
         }
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, rangeDetection);
@@ -68,7 +68,7 @@ public class SoundSystem : CognitiveSystem
         {
             for (int i = 0; i < finalSounds.Count; i++)
             {
-                Gizmos.DrawSphere(finalSounds[i].transform.position, 0.8f);
+                Gizmos.DrawSphere(finalSounds[i].transform.position, 0.6f);
             }
         }
     }

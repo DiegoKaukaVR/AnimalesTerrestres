@@ -8,20 +8,29 @@ public class CommunicationAgent : MonoBehaviour
 
     Character character;
 
+    int groupIndex;
+
     private void Awake()
     {
         character = GetComponent<Character>();
     }
+
+    void GetGroupIndex()
+    {
+        groupIndex = character.groupManager.GetGroupIndex(character.group);
+    }
     public void RegisterEvents()
     {
-        communicationManager.EnemyNotify += OnEnemyNotify;
-        communicationManager.ResourceNotify += OnResourceNotify;
+        GetGroupIndex();
+        communicationManager.enemyNotifyList[groupIndex] += OnEnemyNotify;
+        communicationManager.enemyNotifyList[groupIndex] += OnResourceNotify;
     }
 
     public void UnRegisterEvents()
     {
-        communicationManager.EnemyNotify -= OnEnemyNotify;
-        communicationManager.ResourceNotify -= OnResourceNotify;
+        GetGroupIndex();
+        communicationManager.enemyNotifyList[groupIndex] -= OnEnemyNotify;
+        communicationManager.enemyNotifyList[groupIndex] -= OnResourceNotify;
     }
     public void OnEnemyNotify()
     {

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CognitiveManager : MonoBehaviour
 {
     CognitiveSystem[] cognitiveSystems;
+    Character IABase;
 
     /// <summary>
     /// DATA COLLECTION
@@ -15,6 +16,7 @@ public class CognitiveManager : MonoBehaviour
     private void Start()
     {
         cognitiveSystems = GetComponents<CognitiveSystem>();
+        IABase = GetComponentInParent<Character>();
     }
     private void Update()
     {
@@ -30,7 +32,7 @@ public class CognitiveManager : MonoBehaviour
 
         if (adversaries.Count == 0)
         {
-            CommunicationManager.instance.NotifyEnemyInGroup();
+            CommunicationManager.instance.NotifyEnemyInGroup(IABase.groupManager.GetGroupIndex(character.group));
         }
 
         adversaries.Add(character);

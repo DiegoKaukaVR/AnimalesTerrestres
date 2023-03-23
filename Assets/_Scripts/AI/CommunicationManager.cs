@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +10,12 @@ public class CommunicationManager : MonoBehaviour
     GroupManager groupManager;
 
     public event EnemyNotify EnemyNotify;
+
+    public EnemyNotify[] enemyNotifyList = new EnemyNotify[10];
+
     public event ResourceNotify ResourceNotify;
+
+
 
     private void Awake()
     {
@@ -25,17 +29,40 @@ public class CommunicationManager : MonoBehaviour
         }
 
         groupManager = GetComponent<GroupManager>();
+
+        
     }
 
 
-    public void NotifyEnemyInGroup()
+    public void NotifyEnemyInGroup(int index)
     {
-        EnemyNotify.Invoke();
+        /// TESTEO
+        //enemyNotifyList[0].Invoke();
+        //enemyNotifyList[1].Invoke();
+
+        /// FUNCIONAL
+        ///   //if (EnemyNotify != null)
+        //{
+        //    EnemyNotify.Invoke();
+        //}
+
+
+        if (enemyNotifyList[index] != null)
+        {
+            enemyNotifyList[index].Invoke();
+        } 
+
+      
+      
     }
 
     public void NotifyResourceInGroup()
     {
-        ResourceNotify.Invoke();
+        if (ResourceNotify != null)
+        {
+            ResourceNotify.Invoke();
+        }
+       
     }
 
 }
