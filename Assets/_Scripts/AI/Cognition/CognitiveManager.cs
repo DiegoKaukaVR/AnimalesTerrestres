@@ -22,9 +22,15 @@ public class CognitiveManager : MonoBehaviour
     }
     public void AddAdversary(Character character)
     {
+      
         if (adversaries.Contains(character))
         {
             return;
+        }
+
+        if (adversaries.Count == 0)
+        {
+            CommunicationManager.instance.NotifyEnemyInGroup();
         }
 
         adversaries.Add(character);
@@ -54,13 +60,8 @@ public class CognitiveManager : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        if (adversaries.Count == 0)
-        {
-            return;
-        }
         for (int i = 0; i < adversaries.Count; i++)
         {
-            Gizmos.DrawLine(transform.position, adversaries[i].transform.position);
             Gizmos.DrawCube(adversaries[i].transform.position, Vector3.one);
         }
     }
