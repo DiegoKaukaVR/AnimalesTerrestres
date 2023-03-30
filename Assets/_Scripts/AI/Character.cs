@@ -7,21 +7,16 @@ public class Character : MonoBehaviour
     public int colonyID = 0;
     public string unitName;
     [Header("Group Management")]
-    public GroupManager.Group group;
+    public GroupManager.GroupPrototype group;
+
     public GroupManager groupManager;
     [Header("communication Management")]
     public CommunicationAgent communicationAgent;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         communicationAgent = GetComponent<CommunicationAgent>();
-
-        group = null;
     }
-
-
-
-  
 
     public bool HasGroup()
     {
@@ -29,9 +24,18 @@ public class Character : MonoBehaviour
         {
             return false;
         }
-        else
+
+        if (group.alliesInGroup == null)
         {
-            return true;
+            return false;
         }
+
+        if (group.alliesInGroup.Count == 0)
+        {
+            return false;
+        }
+
+        return true;
+      
     }
 }

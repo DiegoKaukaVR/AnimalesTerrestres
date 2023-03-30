@@ -10,9 +10,12 @@ public class IABase : Character
     public Transform Target;
     public bool isPerformingAction;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         myNavmeshAgent = GetComponent<NavMeshAgent>();
+        group = null;
+
     }
 
     public void GoTarget()

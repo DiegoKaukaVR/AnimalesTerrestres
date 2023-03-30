@@ -154,6 +154,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &322887993 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8964092571861552150, guid: 9c92f7428f116764db35aaf6aa556ac2,
+    type: 3}
+  m_PrefabInstance: {fileID: 913032699}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &346031766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -174,7 +180,7 @@ PrefabInstance:
     - target: {fileID: 8964092571861552150, guid: 9c92f7428f116764db35aaf6aa556ac2,
         type: 3}
       propertyPath: m_Name
-      value: Bear(Animal) (2)
+      value: Bear(Animal) 3
       objectReference: {fileID: 0}
     - target: {fileID: 8964092571861552151, guid: 9c92f7428f116764db35aaf6aa556ac2,
         type: 3}
@@ -249,7 +255,7 @@ PrefabInstance:
     - target: {fileID: 8964092571861552153, guid: 9c92f7428f116764db35aaf6aa556ac2,
         type: 3}
       propertyPath: unitName
-      value: Bear1
+      value: Bear3
       objectReference: {fileID: 0}
     - target: {fileID: 8964092571861552153, guid: 9c92f7428f116764db35aaf6aa556ac2,
         type: 3}
@@ -275,19 +281,25 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 346031766}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1037408632}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9818e85ef47bc64429f28caf19c7e52e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &437049773 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8964092571861552150, guid: 9c92f7428f116764db35aaf6aa556ac2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1233084409}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &440092241 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8964092571861552153, guid: 9c92f7428f116764db35aaf6aa556ac2,
     type: 3}
   m_PrefabInstance: {fileID: 1233084409}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 437049773}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9818e85ef47bc64429f28caf19c7e52e, type: 3}
@@ -299,12 +311,18 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 8964092572190929136}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 513378211}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9818e85ef47bc64429f28caf19c7e52e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &513378211 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8964092571861552150, guid: 9c92f7428f116764db35aaf6aa556ac2,
+    type: 3}
+  m_PrefabInstance: {fileID: 8964092572190929136}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &586366802
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,6 +360,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8964092572190929136}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &610745802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513378211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a04b82c8b3f6f9049a013e627ae5ed0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  family:
+    familyName: 
+    familyMembers: []
+  entity: {fileID: 481230057}
+  father: {fileID: 0}
+  mother: {fileID: 0}
+  brothers: []
+  stepBrothers: []
+  relatives: []
 --- !u!1001 &689757727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -584,7 +623,7 @@ PrefabInstance:
     - target: {fileID: 8964092571861552150, guid: 9c92f7428f116764db35aaf6aa556ac2,
         type: 3}
       propertyPath: m_Name
-      value: Bear(Animal) (3)
+      value: Bear(Animal) 4
       objectReference: {fileID: 0}
     - target: {fileID: 8964092571861552152, guid: 9c92f7428f116764db35aaf6aa556ac2,
         type: 3}
@@ -644,7 +683,7 @@ PrefabInstance:
     - target: {fileID: 8964092571861552153, guid: 9c92f7428f116764db35aaf6aa556ac2,
         type: 3}
       propertyPath: unitName
-      value: Bear2
+      value: Bear4
       objectReference: {fileID: 0}
     - target: {fileID: 8964092571861552153, guid: 9c92f7428f116764db35aaf6aa556ac2,
         type: 3}
@@ -670,12 +709,60 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 913032699}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 322887993}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9818e85ef47bc64429f28caf19c7e52e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &913032705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322887993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a04b82c8b3f6f9049a013e627ae5ed0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  family:
+    familyName: 
+    familyMembers: []
+  entity: {fileID: 913032701}
+  father: {fileID: 0}
+  mother: {fileID: 0}
+  brothers: []
+  stepBrothers: []
+  relatives: []
+--- !u!1 &1037408632 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8964092571861552150, guid: 9c92f7428f116764db35aaf6aa556ac2,
+    type: 3}
+  m_PrefabInstance: {fileID: 346031766}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1037408636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037408632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a04b82c8b3f6f9049a013e627ae5ed0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  family:
+    familyName: 
+    familyMembers: []
+  entity: {fileID: 346031768}
+  father: {fileID: 0}
+  mother: {fileID: 0}
+  brothers: []
+  stepBrothers: []
+  relatives: []
 --- !u!1 &1210051167
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,7 +870,7 @@ PrefabInstance:
     - target: {fileID: 8964092571861552150, guid: 9c92f7428f116764db35aaf6aa556ac2,
         type: 3}
       propertyPath: m_Name
-      value: Bear(Animal) (1)
+      value: Bear(Animal) 2
       objectReference: {fileID: 0}
     - target: {fileID: 8964092571861552152, guid: 9c92f7428f116764db35aaf6aa556ac2,
         type: 3}
@@ -1398,6 +1485,7 @@ GameObject:
   - component: {fileID: 1966292944}
   - component: {fileID: 1966292943}
   - component: {fileID: 1966292945}
+  - component: {fileID: 1966292946}
   m_Layer: 0
   m_Name: GroupManager
   m_TagString: Untagged
@@ -1417,12 +1505,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd52c7d5b7e10241b3be5c6bc8ce904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentOrganization: 1
   allCharacters:
   - {fileID: 481230057}
   - {fileID: 440092241}
   - {fileID: 346031768}
   - {fileID: 913032701}
-  alliesInGroup: []
   groupList: []
   minDistToCenter: 5
   minDistToGroup: 5
@@ -1453,12 +1541,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c8b434801496874d9f74262f2341144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1966292946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966292942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd8545f94869d934987f92444e8394d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllFamilies:
+  - familyName: Clan del Oso
+    familyMembers:
+    - {fileID: 610745802}
+    - {fileID: 1037408636}
+  - familyName: Clan de la Miel
+    familyMembers:
+    - {fileID: 1973813441}
+    - {fileID: 913032705}
 --- !u!4 &1973813437 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8964092571861552152, guid: 9c92f7428f116764db35aaf6aa556ac2,
     type: 3}
   m_PrefabInstance: {fileID: 1233084409}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1973813441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437049773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a04b82c8b3f6f9049a013e627ae5ed0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  family:
+    familyName: 
+    familyMembers: []
+  entity: {fileID: 440092241}
+  father: {fileID: 0}
+  mother: {fileID: 0}
+  brothers: []
+  stepBrothers: []
+  relatives: []
 --- !u!1 &2078491867
 GameObject:
   m_ObjectHideFlags: 0
@@ -1588,7 +1718,7 @@ PrefabInstance:
     - target: {fileID: 8964092571861552150, guid: 9c92f7428f116764db35aaf6aa556ac2,
         type: 3}
       propertyPath: m_Name
-      value: Bear(Animal)
+      value: Bear(Animal) 1
       objectReference: {fileID: 0}
     - target: {fileID: 8964092571861552151, guid: 9c92f7428f116764db35aaf6aa556ac2,
         type: 3}
