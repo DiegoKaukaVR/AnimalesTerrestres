@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public int colonyID = 0;
+
+    public AnimalType specie;
     public string unitName;
+
     [Header("Group Management")]
     public GroupManager.GroupPrototype group;
 
@@ -13,11 +15,25 @@ public class Character : MonoBehaviour
     [Header("communication Management")]
     public CommunicationAgent communicationAgent;
 
+   
+    public enum AnimalType
+    {
+        Bear,
+        Goat,
+        Wolf
+    }
+
     protected virtual void Awake()
     {
         communicationAgent = GetComponent<CommunicationAgent>();
+      
     }
 
+
+    protected virtual void Start()
+    {
+        UnitManager.instance.AddCharacter(this);
+    }
     public bool HasGroup()
     {
         if (group == null)
