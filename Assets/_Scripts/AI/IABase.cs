@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class IABase : Character
 {
     [HideInInspector] public NavMeshAgent myNavmeshAgent;
+    [HideInInspector] public Animator animator;
 
     public Transform Target;
     public bool isPerformingAction;
@@ -14,6 +15,7 @@ public class IABase : Character
     {
         base.Awake();
         myNavmeshAgent = GetComponent<NavMeshAgent>();
+        animator = GetComponentInChildren<Animator>();
         group = null;
 
     }
@@ -30,5 +32,15 @@ public class IABase : Character
     public void GoTarget(Vector3 position)
     {
         myNavmeshAgent.SetDestination(position);
+    }
+
+
+    public void Attack()
+    {
+        animator.SetTrigger("Attack");
+        myNavmeshAgent.ResetPath();
+        myNavmeshAgent.velocity = Vector3.zero;
+        Debug.Log("Attack");
+        
     }
 }

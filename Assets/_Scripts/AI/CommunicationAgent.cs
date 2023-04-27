@@ -5,6 +5,7 @@ using UnityEngine;
 public class CommunicationAgent : MonoBehaviour
 {
     public CommunicationManager communicationManager;
+    SimpleCommunication simpleCommunication;
 
     Character character;
 
@@ -13,12 +14,54 @@ public class CommunicationAgent : MonoBehaviour
     private void Awake()
     {
         character = GetComponent<Character>();
+        simpleCommunication = GetComponent<SimpleCommunication>();
+    }
+    private void OnEnable()
+    {
+        simpleCommunication.OnCommunicationEvent += ReceiveMessage;
+    }
+
+    private void OnDisable()
+    {
+        
+    }
+
+    void ReceiveMessage()
+    {
+        Debug.Log("Mensaje Recibido");
     }
 
     void GetGroupIndex()
     {
         groupIndex = character.groupManager.GetGroupIndex(character.group);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public void RegisterEvents()
     {
         GetGroupIndex();

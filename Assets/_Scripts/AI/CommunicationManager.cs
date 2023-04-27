@@ -9,7 +9,7 @@ public class CommunicationManager : MonoBehaviour
     public static CommunicationManager instance;
     GroupManager groupManager;
 
-    public event EnemyNotify EnemyNotify;
+    public event EnemyNotify OnEnemyNotify;
 
     public EnemyNotify[] enemyNotifyList = new EnemyNotify[10];
 

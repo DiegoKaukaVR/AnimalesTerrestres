@@ -30,6 +30,7 @@ public class MoveTargetTask : Action
         if (Time.frameCount % 10 == 0)
         {
             entity.GoTarget(targets.Value[0].position);
+            return TaskStatus.Success;
         }
 
         return TaskStatus.Running;

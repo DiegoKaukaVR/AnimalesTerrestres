@@ -4,10 +4,8 @@ using UnityEngine;
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 
-public class InSightCondition : Conditional
+public class InSightConditionObjects : Conditional
 {
-
-    public Character.AnimalType targetSpecie;
 
     /// <summary>
     ///  LISTA DE CHARACTERS IN VISION
@@ -26,8 +24,6 @@ public class InSightCondition : Conditional
     float dist;
     Vector3 dir;
     float angle;
-
-    public SharedBool hasTarget;
 
     public override void OnStart()
     {
@@ -64,24 +60,18 @@ public class InSightCondition : Conditional
             if (angle > fieldOfView / 2) { continue; }
             if (Physics.Raycast(headTransform.position, dir, dist, obstacleLayer)) { continue; }
 
-            if (hitColliders[i].TryGetComponent<Character>(out Character character))
+            if (hitColliders[i].TryGetComponent<Resource>(out Resource resource))
             {
-                if (character.specie == targetSpecie)
-                {
-                    inSightTargets.Value.Add(character.transform);
-                }
-            
+                inSightTargets.Value.Add(resource.transform);
             }
         }
 
         if (inSightTargets.Value.Count >0)
         {
-            hasTarget.Value = true;
             return true;
         }
         else
         {
-            hasTarget.Value = false;
             return false;
         }
     }
