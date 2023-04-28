@@ -54,5 +54,11 @@ public class AnimatorManager : MonoBehaviour
     }
 
 
+    public void AttackOut()
+    {
+        entity.AttackOut();
+    }
+
+
 
 }

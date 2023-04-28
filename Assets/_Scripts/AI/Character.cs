@@ -15,7 +15,7 @@ public class Character : MonoBehaviour
     [Header("communication Management")]
     public CommunicationAgent communicationAgent;
 
-   
+    [HideInInspector] public Animator animator;
     public enum AnimalType
     {
         Bear,
@@ -26,7 +26,8 @@ public class Character : MonoBehaviour
     protected virtual void Awake()
     {
         communicationAgent = GetComponent<CommunicationAgent>();
-      
+
+        currentHP = maxHP;
     }
 
 
@@ -52,6 +53,30 @@ public class Character : MonoBehaviour
         }
 
         return true;
+      
+    }
+
+    public int maxHP;
+    public int currentHP;
+    bool dead;
+    public virtual void ReceiveDamage(int damage) 
+    {
+        
+        currentHP -= damage;
+
+        if (currentHP <= 0)
+        {
+            Death();
+        }
+        else
+        {
+            animator.SetTrigger("Hit");
+        }
+    }
+
+    public virtual void Death()
+    {
+       
       
     }
 }

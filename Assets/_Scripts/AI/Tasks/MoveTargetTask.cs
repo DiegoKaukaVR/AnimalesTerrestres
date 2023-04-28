@@ -6,7 +6,7 @@ using BehaviorDesigner.Runtime;
 using UnityEngine.AI;
 public class MoveTargetTask : Action
 {
-    public float speed = 1f;
+    public float newSpeed = 1f;
     public SharedTransformList targets;
 
     public SharedGameObject entityGO;
@@ -18,6 +18,7 @@ public class MoveTargetTask : Action
     {
         entity = entityGO.Value.gameObject.GetComponent<IABase>();
         inGame = true;
+        entity.ChangeSpeed(newSpeed);
     }
 
     public override TaskStatus OnUpdate()

@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using BehaviorDesigner;
+using BehaviorDesigner.Runtime;
 
 public class IABase : Character
 {
     [HideInInspector] public NavMeshAgent myNavmeshAgent;
-    [HideInInspector] public Animator animator;
+    BehaviorTree behaviorTree;
+
+    public Collider colliderAttack;
 
     public Transform Target;
     public bool isPerformingAction;
@@ -16,6 +20,7 @@ public class IABase : Character
         base.Awake();
         myNavmeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
+        behaviorTree = GetComponent<BehaviorTree>();
         group = null;
 
     }
@@ -40,7 +45,30 @@ public class IABase : Character
         animator.SetTrigger("Attack");
         myNavmeshAgent.ResetPath();
         myNavmeshAgent.velocity = Vector3.zero;
+        colliderAttack.enabled = true;
         Debug.Log("Attack");
-        
+    }
+
+    public void AttackOut()
+    {
+        colliderAttack.enabled = false;
+
+    }
+
+    public void ChangeSpeed(float newSpeed)
+    {
+        myNavmeshAgent.speed = newSpeed;
+    }
+
+    public override void Death()
+    {
+        base.Death();
+        animator.SetTrigger("Death");
+        animator.applyRootMotion = true;
+        myNavmeshAgent.velocity = Vector3.zero;
+        myNavmeshAgent.enabled = false;
+        behaviorTree.DisableBehavior();
+        this.enabled = false;
+       
     }
 }
