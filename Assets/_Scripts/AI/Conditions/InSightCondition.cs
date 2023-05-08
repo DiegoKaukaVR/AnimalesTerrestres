@@ -87,15 +87,26 @@ public class InSightCondition : Conditional
     }
 
     bool inGame;
+    Vector3 pointA;
+    Vector3 pointB;
+    Vector3 pointC;
     public override void OnDrawGizmos()
     {
         if (!inGame)
         {
             return;
         }
+
         Gizmos.color = Color.red;
+        pointA = headTransform.position + Quaternion.Euler(0, -fieldOfView / 2, 0) * transform.forward * rangeVision;
+        pointB = headTransform.position + Quaternion.Euler(0, fieldOfView / 2, 0) * transform.forward * rangeVision;
+        pointC = headTransform.position + transform.forward * rangeVision;
+        Gizmos.DrawRay(headTransform.position, transform.forward * rangeVision);
         Gizmos.DrawRay(headTransform.position, Quaternion.Euler(0, -fieldOfView / 2, 0) * transform.forward * rangeVision);
         Gizmos.DrawRay(headTransform.position, Quaternion.Euler(0, fieldOfView / 2, 0) * transform.forward * rangeVision);
+        Gizmos.DrawLine(pointA, pointC);
+        Gizmos.DrawLine(pointB, pointC);
+
     }
   
 }

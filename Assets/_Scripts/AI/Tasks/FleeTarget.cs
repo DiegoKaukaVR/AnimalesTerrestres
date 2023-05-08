@@ -5,6 +5,7 @@ using UnityEngine;
 public class FleeTarget : Action
 {
     public SharedGameObject entityGO;
+    
     [HideInInspector] public IABase entity;
 
     public float newSpeed = 1f;

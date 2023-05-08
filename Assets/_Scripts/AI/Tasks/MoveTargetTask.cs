@@ -42,7 +42,7 @@ public class MoveTargetTask : Action
         {
             return;
         }
-        Gizmos.DrawCube(targets.Value[0].position, Vector3.one * 0.1f);
+        //Gizmos.DrawCube(targets.Value[0].position, Vector3.one * 0.1f);
     }
 
 

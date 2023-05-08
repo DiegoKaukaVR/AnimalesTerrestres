@@ -16,19 +16,36 @@ public class GroupManager : MonoBehaviour
 
     [Header("Group Manager")]
     public List<GroupPrototype> groupList = new List<GroupPrototype>();
+    public void ClearGroup(GroupPrototype group)
+    {
+        group.alliesInGroup.Clear();
 
+        for (int i = 0; i < groupList.Count; i++)
+        {
+            if (groupList[i] == group)
+            {
+                groupList.Remove(group);            }
+            }
+    
+
+    }
 
     [System.Serializable]
     public class GroupPrototype
     {
+        
         public GroupPrototype(Character char1, Character char2)
         {
             alliesInGroup = new List<Character>() { char1, char2 };
+            targets = new List<Transform>();
         }
 
         public List<Character> alliesInGroup;
 
+        public List<Transform> targets = new List<Transform>();
     }
+
+
 
     public int GetGroupIndex(GroupPrototype group)
     {
@@ -147,7 +164,7 @@ public class GroupManager : MonoBehaviour
 
         if (!a.HasGroup() && !b.HasGroup())
         {
-            CreateGroup(a, b);
+             CreateGroup(a, b);
         }
     }
 
@@ -204,6 +221,10 @@ public class GroupManager : MonoBehaviour
         {
             B.alliesInGroup[i].group = A;
         }
+
+        ClearGroup(B);
+
+       
     }
 
     void CreateGroup(Character a, Character b)

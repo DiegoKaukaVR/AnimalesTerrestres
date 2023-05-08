@@ -16,11 +16,44 @@ public class Character : MonoBehaviour
     public CommunicationAgent communicationAgent;
 
     [HideInInspector] public Animator animator;
+
+    public List<Transform> EnemyTransforms;
     public enum AnimalType
     {
         Bear,
         Goat,
         Wolf
+    }
+
+    bool alert = false;
+    public bool dead;
+    public bool IsAlert()
+    {
+        if (alert)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public void SendAlertMessage()
+    {
+        communicationAgent.SendAlertMessageGroup();
+    }
+    public void SendEnemyTransforms(List<Transform> targets)
+    {
+        communicationAgent.SendEnemiesTargets(targets);
+    }
+    public void ReceiveAlertMessage()
+    {
+        Debug.Log("Unit: " + unitName + "ha sido alertado de un enemigo!!");
+        alert = true;
+    }
+    public void ReceiveEnemyTransfroms(List<Transform> targets)
+    {
+        EnemyTransforms = targets;
     }
 
     protected virtual void Awake()
@@ -58,7 +91,7 @@ public class Character : MonoBehaviour
 
     public int maxHP;
     public int currentHP;
-    bool dead;
+ 
     public virtual void ReceiveDamage(int damage) 
     {
         
@@ -76,7 +109,7 @@ public class Character : MonoBehaviour
 
     public virtual void Death()
     {
-       
-      
+        dead = true;
+
     }
 }

@@ -1,9 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+using System; 
 
 public delegate void EnemyNotify();
+public delegate void EnemyPositions(Transform transforms);
 public delegate void ResourceNotify();
+
+public delegate void EventHandler(object? sender, EventArgs e);
+
 public class CommunicationManager : MonoBehaviour
 {
     public static CommunicationManager instance;
@@ -12,10 +16,10 @@ public class CommunicationManager : MonoBehaviour
     public event EnemyNotify OnEnemyNotify;
 
     public EnemyNotify[] enemyNotifyList = new EnemyNotify[10];
-
+    public EnemyPositions[] enemyNotifyPositions = new EnemyPositions[10];
     public event ResourceNotify ResourceNotify;
 
-
+    public event EventHandler a;
 
     private void Awake()
     {

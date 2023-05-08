@@ -15,21 +15,42 @@ public class CommunicationAgent : MonoBehaviour
     {
         character = GetComponent<Character>();
         simpleCommunication = GetComponent<SimpleCommunication>();
+
+        count = maxCount;
+
     }
     private void OnEnable()
     {
-        simpleCommunication.OnCommunicationEvent += ReceiveMessage;
+        RegisterEvents();
     }
 
     private void OnDisable()
     {
-        
+        UnRegisterEvents();
     }
 
-    void ReceiveMessage()
+    public void SendAlertMessageGroup()
     {
-        Debug.Log("Mensaje Recibido");
+        GetGroupIndex();
+        Debug.Log("Estar alerta grupo!!");
+        communicationManager.enemyNotifyList[groupIndex].Invoke();
+            
     }
+
+    int count;
+    int maxCount = 100000;
+
+    bool onlyOnce;
+    public void SendEnemiesTargets(List<Transform> targets)
+    {
+        Debug.Log("Estas son las posiciones de los enemigos!!");
+        if (character.group != null && character.group.alliesInGroup.Count >0)
+        {
+            character.group.targets = targets;
+        }
+
+    }
+
 
     void GetGroupIndex()
     {
@@ -37,47 +58,22 @@ public class CommunicationAgent : MonoBehaviour
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public void RegisterEvents()
     {
         GetGroupIndex();
-        communicationManager.enemyNotifyList[groupIndex] += OnEnemyNotify;
-        communicationManager.enemyNotifyList[groupIndex] += OnResourceNotify;
+        communicationManager.enemyNotifyList[groupIndex] += character.ReceiveAlertMessage;
+        //communicationManager.enemyNotifyPositions[groupIndex] += character.SendEnemyTransforms;
+
+
+        //communicationManager.enemyNotifyList[groupIndex] += OnResourceNotify;
     }
 
     public void UnRegisterEvents()
     {
         GetGroupIndex();
-        communicationManager.enemyNotifyList[groupIndex] -= OnEnemyNotify;
-        communicationManager.enemyNotifyList[groupIndex] -= OnResourceNotify;
-    }
-    public void OnEnemyNotify()
-    {
-        Debug.Log(character.unitName + ": Enemy notified");
+        communicationManager.enemyNotifyList[groupIndex] -= character.ReceiveAlertMessage;
+        //communicationManager.enemyNotifyPositions[groupIndex] -= character.SendEnemyTransforms;
+        //communicationManager.enemyNotifyList[groupIndex] -= OnResourceNotify;
     }
 
     public void OnResourceNotify()

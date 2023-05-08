@@ -14,9 +14,11 @@ public class MoveTarget : Action
     public SharedGameObject entityGO;
     [HideInInspector] public IABase entity;
 
+    bool game;
     public override void OnStart()
     {
         entity = entityGO.Value.gameObject.GetComponent<IABase>();
+        game = true;
     }
 
     public override TaskStatus OnUpdate()
@@ -35,6 +37,10 @@ public class MoveTarget : Action
     }
     public override void OnDrawGizmos()
     {
+        if (!game)
+        {
+            return;
+        }
         Gizmos.DrawCube(target.Value.position, Vector3.one * 0.1f);
     }
 

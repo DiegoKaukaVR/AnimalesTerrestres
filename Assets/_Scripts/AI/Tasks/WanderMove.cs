@@ -77,8 +77,8 @@ public class WanderMove : Action
         {
             return;
         }
-        Gizmos.DrawLine(transform.position, randomPos);
-        Gizmos.DrawSphere(randomPos, 0.2f);
+        //Gizmos.DrawLine(transform.position, randomPos);
+        //Gizmos.DrawSphere(randomPos, 0.2f);
     }
 
 }

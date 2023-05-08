@@ -30,10 +30,10 @@ public class CognitiveManager : MonoBehaviour
             return;
         }
 
-        if (adversaries.Count == 0)
-        {
-            CommunicationManager.instance.NotifyEnemyInGroup(IABase.groupManager.GetGroupIndex(character.group));
-        }
+        //if (adversaries.Count == 0)
+        //{
+        //    CommunicationManager.instance.NotifyEnemyInGroup(IABase.groupManager.GetGroupIndex(character.group));
+        //}
 
         adversaries.Add(character);
     }

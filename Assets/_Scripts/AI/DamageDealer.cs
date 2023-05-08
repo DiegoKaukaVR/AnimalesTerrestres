@@ -6,6 +6,8 @@ public class DamageDealer : MonoBehaviour
 {
     public Character user;
 
+    public Character.AnimalType targetSpecie;
+
     public Collider ColliderDamage;
 
     [HideInInspector]
@@ -36,6 +38,11 @@ public class DamageDealer : MonoBehaviour
         if (Tools.DetectLayer.LayerInLayerMask(other.gameObject.layer, layerMask))
         {
             currentTarget = other.GetComponent<Character>();
+            if (currentTarget.specie != targetSpecie)
+            {
+                return;
+            }
+
             if (currentTarget == user)
             {
                 return;

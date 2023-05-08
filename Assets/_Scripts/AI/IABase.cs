@@ -25,6 +25,11 @@ public class IABase : Character
 
     }
 
+   
+
+
+
+
     public void GoTarget()
     {
         myNavmeshAgent.SetDestination(Target.position);
@@ -42,17 +47,20 @@ public class IABase : Character
 
     public void Attack()
     {
+        isPerformingAction = true;
         animator.SetTrigger("Attack");
-        myNavmeshAgent.ResetPath();
-        myNavmeshAgent.velocity = Vector3.zero;
         colliderAttack.enabled = true;
+        //myNavmeshAgent.ResetPath();
+        //myNavmeshAgent.velocity = Vector3.zero;
+        //colliderAttack.enabled = true;
         Debug.Log("Attack");
     }
 
     public void AttackOut()
     {
+        Debug.Log("AttackOut");
         colliderAttack.enabled = false;
-
+        isPerformingAction = false;
     }
 
     public void ChangeSpeed(float newSpeed)

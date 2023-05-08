@@ -27,6 +27,17 @@ public class AttackTarget : Action
         {
             return TaskStatus.Failure;
         }
+
+      
+        if (targets.Value[0].GetComponent<Character>().dead)
+        {
+            hasTarget.Value = false;
+            return TaskStatus.Failure;
+        }
+        if (entity.isPerformingAction)
+        {
+            return TaskStatus.Success;
+        }
         if (canAttack)
         {
             if (Vector3.Distance(transform.position, targets.Value[0].position)< minDistAttack)
