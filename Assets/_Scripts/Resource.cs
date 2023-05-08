@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Resource : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public bool isAvaible()
     {
-        
+        if (avaible)
+        {
+            avaible = false;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public bool avaible = true;
 }

@@ -66,6 +66,10 @@ public class InSightCondition : Conditional
 
             if (hitColliders[i].TryGetComponent<Character>(out Character character))
             {
+                if (character.dead)
+                {
+                    continue;
+                }
                 if (character.specie == targetSpecie)
                 {
                     inSightTargets.Value.Add(character.transform);

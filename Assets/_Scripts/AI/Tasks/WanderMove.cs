@@ -20,17 +20,23 @@ public class WanderMove : Action
     public float maxTime = 10f;
     bool game;
 
+  
+
     public override void OnAwake()
     {
         entityGO.Value.GetComponent<IABase>();
         game = true;
-        entity.ChangeSpeed(newSpeed);
+        
         CalculateRandomTimer();
         GoRandomPoint();
     }
 
+    public override void OnStart()
+    {
+        entity.ChangeSpeed(newSpeed);
+    }
 
-   
+
     public override TaskStatus OnUpdate()
     {
         if (Vector3.Distance(transform.position, randomPos) < 1.9f)

@@ -25,13 +25,23 @@ public class InSightConditionObjects : Conditional
     Vector3 dir;
     float angle;
 
+    bool hasTarget;
+
     public override void OnStart()
     {
         inGame = true;
-        inSightTargets.Value = new List<Transform>();
+        if (inSightTargets.Value.Capacity == 0)
+        {
+            inSightTargets.Value = new List<Transform>();
+        }
+
     }
     public override TaskStatus OnUpdate()
     {
+        if (hasTarget)
+        {
+            return TaskStatus.Success;
+        }
         if (CheckVisionAI())
         {
             return TaskStatus.Success;
@@ -62,18 +72,23 @@ public class InSightConditionObjects : Conditional
 
             if (hitColliders[i].TryGetComponent<Resource>(out Resource resource))
             {
-                inSightTargets.Value.Add(resource.transform);
+                if (resource.isAvaible())
+                {
+                    inSightTargets.Value.Add(resource.transform);
+                    hasTarget = true;
+                    return true;
+                }
+                else
+                {
+                    continue;
+                }
+            
             }
         }
 
-        if (inSightTargets.Value.Count >0)
-        {
-            return true;
-        }
-        else
-        {
+        
             return false;
-        }
+      
     }
 
     bool inGame;
